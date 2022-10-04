@@ -31,7 +31,6 @@ def menu():
         elif choix == "6" :
             condition = False
 
-
 # menu()
 
 class magasin:
@@ -42,8 +41,6 @@ class Jeu:
         self.nom = nom
         self.quantite = quantite
 
-
-    
     def __str__(self) -> str:
         return f"Le nom de jeu est : {self.nom} \nQuantité : {self.quantite}"
            
