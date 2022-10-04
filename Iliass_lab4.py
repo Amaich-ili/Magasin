@@ -42,6 +42,7 @@ class Jeu:
         self.nom = nom
         self.quantite = quantite
 
+
     
     def __str__(self) -> str:
         return f"Le nom de jeu est : {self.nom} \nQuantité : {self.quantite}"
@@ -50,32 +51,27 @@ class Jeu:
 class Jeu_carte(Jeu):
     def __init__(self, nom, quantite):
         super(). __init__(nom, quantite)
-        # self.nom = nom
-        # self.quantite = quantite
+       
 
 class Jeu_strategie(Jeu):
     def __init__(self, nom, quantite):
         super(). __init__(nom, quantite)
-        # self.nom = nom
-        # self.quantite = quantite
+    
 
 class Jeur_role(Jeu):
     def __init__(self, nom, quantite):
         super(). __init__(nom, quantite)
-        # self.nom = nom
-        # self.quantite = quantite
+
 
 class Jeu_asseblage(Jeu):
     def __init__(self, nom, quantite):
         super(). __init__(nom, quantite)
-        # self.nom = nom
-        # self.quantite = quantite
+     
 
 class Jeu_adresse(Jeu):
     def __init__(self, nom, quantite):
         super(). __init__(nom, quantite)
-        # self.nom = nom
-        # self.quantite = quantite
+    
 
 class tournoi:
     pass
