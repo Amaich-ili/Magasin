@@ -44,7 +44,7 @@ class Jeu:
 
     
     def __str__(self) -> str:
-        return f"Le nom de jeu est : {self.nom} \n La quantité disponible est : {self.quantite}"
+        return f"Le nom de jeu est : {self.nom} \nQuantité : {self.quantite}"
            
    
 class Jeu_carte(Jeu):
@@ -80,6 +80,8 @@ class Jeu_adresse(Jeu):
 class tournoi:
     pass
 
+j1 = Jeu_carte("Uno", 2)
+print(j1)
 
 
 
