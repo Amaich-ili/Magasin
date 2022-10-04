@@ -1,21 +1,10 @@
 Uno 2
 Solitaire 2
-
 Elvenar 2
-https://fr.elvenar.com/
 Grepolis 2
-https://fr.grepolis.com/
-
 malefices 2
-https://fr.ulule.com/malefices/
 Kuro 2
-https://fr.wikipedia.org/wiki/Kuro_(jeu_de_r%C3%B4le)
-
 Casse_tete 2
 Rubik's_cube 2
-http://www.universalis-edu.com/classification/sports-et-loisirs/loisirs/jeux-par-categories/jeux-d-assemblage/casse-tete/
-
 Monopolie 2
-http://www.universalis-edu.com/encyclopedie/monopoly/
 mahjong 2
-http://www.universalis-edu.com/encyclopedie/mahjong/
