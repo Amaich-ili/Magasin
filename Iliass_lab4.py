@@ -4,35 +4,81 @@ Laboratoire 4
 Session été 2022
 
 """
+
 def menu():
+
+    condition = True
+
+    while condition:
+        choix = input("\n(1) Afficher les Jeux de cartes "
+                      "\n(2) Afficher les jeux de stratégie  "
+                      "\n(3) Afficher les jeux de rôle "
+                      "\n(4) Afficher les Jeux d'assemblage "
+                      "\n(5) Afficher les Jeux d'adresse "
+                      "\n(6) Quiter"
+                      "\nVotre choix : ")
+
+        if choix == "1" :
+            pass
+        elif choix == "2" :
+            pass
+        elif choix == "3":
+            pass
+        elif choix == "4":
+            pass
+        elif choix == "5":
+            pass
+        elif choix == "6" :
+            condition = False
+
+
+# menu()
+
+class magasin:
     pass
 
-
-
 class Jeu:
-      def __init__(self, nom, quantite):
-        pass
-   
-class Jeu_carte:
-      def __init__(self, nom, quantite):
-        pass
-
-class Jeu_stratigie:
     def __init__(self, nom, quantite):
-        pass
+        self.nom = nom
+        self.quantite = quantite
 
-class Jeur_role:
-      def __init__(self, nom, quantite):
-        pass
+    
+    def __str__(self) -> str:
+        return f"Le nom de jeu est : {self.nom} \n La quantité disponible est : {self.quantite}"
+           
+   
+class Jeu_carte(Jeu):
+    def __init__(self, nom, quantite):
+        super(). __init__(nom, quantite)
+        # self.nom = nom
+        # self.quantite = quantite
 
-class Jeu_asseblage:
-       def __init__(self, nom, quantite):
-        pass
+class Jeu_strategie(Jeu):
+    def __init__(self, nom, quantite):
+        super(). __init__(nom, quantite)
+        # self.nom = nom
+        # self.quantite = quantite
 
-class Jeu_adresse:
-       def __init__(self, nom, quantite):
-        pass
+class Jeur_role(Jeu):
+    def __init__(self, nom, quantite):
+        super(). __init__(nom, quantite)
+        # self.nom = nom
+        # self.quantite = quantite
 
+class Jeu_asseblage(Jeu):
+    def __init__(self, nom, quantite):
+        super(). __init__(nom, quantite)
+        # self.nom = nom
+        # self.quantite = quantite
+
+class Jeu_adresse(Jeu):
+    def __init__(self, nom, quantite):
+        super(). __init__(nom, quantite)
+        # self.nom = nom
+        # self.quantite = quantite
+
+class tournoi:
+    pass
 
 
 
