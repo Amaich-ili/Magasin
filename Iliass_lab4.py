@@ -63,9 +63,9 @@ class Magasin:
         while condition:
             print("\n\t--Binvenue dans note magasin de jeux--")
             choix = input("\n(1). Acheter un jeu "
-                        "\n(2). Voir l'inventaire "
-                        "\n(3). Quiter"
-                        "\nVotre choix (1 - 3): ")
+                          "\n(2). Voir l'inventaire "
+                          "\n(3). Quiter"
+                          "\nMerci de choisir une option (1 - 3): ")
 
             if choix == "1":
                 print("\nVoici les jeux disponibles")
@@ -92,7 +92,7 @@ class Jeu_carte(Jeu):
 
     def achat(self):
         for i in range(Magasin.qtt_vendu):
-            couleur = input(f"Choisissez la couleur de votre pochette numero {i+1}: ")
+            couleur = input(f"Merci de Choisir la couleur de votre pochette numero {i+1}: ")
             self.object_pochette = Pochette(couleur)
             print(f"{self.object_pochette}pour votre jeu {self.nom}")
 
@@ -115,24 +115,46 @@ class Jeu_strategie(Jeu):
         self.type = "Jeux de strategie"
         self.nom = nom
         self.quantite = quantite
-        self.objet_tournoi = ""
+        self.objet_tournoi = "tournoi"
 
-    def achat(self):
-        nom = input("Entrez votre nom : ")
-        prenom = input("Entrez votre prenom : ")
-        courriel= input("Choisissez la couleur de votre pochette : ")
-        # self.object_pochette = Magasin.choisir_pochette(couleur)
-        self.objet_tournoi= Tournoi(nom, prenom, courriel)
+    # def achat(self):
+    #     participe = input("Voulez vous participer à un Tournoi (oui/non): ")
+    #     # tournoi
+    #     # for tournoi in tournois:
+    #     #     print(tournoi)
+    #     if participe == "oui":
+    #         if 
+    #     nom = input("Entrez votre nom : ")
+    #     prenom = input("Entrez votre prenom : ")
+    #     courriel= input("Entrer votre courrriel : ")
+    #     # self.object_pochette = Magasin.choisir_pochette(couleur)
+    #     self.objet_tournoi= Tournoi(nom, courriel)
 
 class Elvenar(Jeu_strategie):
     def __init__(self, quantite):
         super().__init__()
         self.quantite = quantite
+    
+    def achat(self):
+        participe = input("Voulez vous participer à un Tournoi (oui/non): ")
+        if participe == "oui":
+            nom = input("Entrez votre nom : ")
+            courriel= input("Entrer votre courrriel : ")
+        # self.object_pochette = Magasin.choisir_pochette(couleur)
+        self.objet_tournoi= Tournoi(nom, courriel)
 
 class Grepolis(Jeu_strategie):
     def __init__(self, quantite):
         super().__init__()
         self.quantite = quantite
+    
+    def achat(self):
+        participe = input("Voulez vous participer à un Tournoi (oui/non): ")
+        if participe == "oui":
+            nom = input("Entrez votre nom : ")
+            courriel= input("Entrer votre courrriel : ")
+        # self.object_pochette = Magasin.choisir_pochette(couleur)
+        self.objet_tournoi= Tournoi(nom, courriel)
 
 class Jeur_role(Jeu):
     def __init__(self, nom, quantite):
@@ -142,18 +164,31 @@ class Jeur_role(Jeu):
         self.nom = nom
         self.quantite = quantite
 
-    def achat(self):
-        print("Voici la documentation de votre jeu : ")
+    # def achat(self):
+    #     print("Voici la documentation de votre jeu : ")
 
 class Malefices(Jeur_role):
     def __init__(self, quantite):
         super().__init__()
         self.quantite = quantite
-
+    
+    def achat(self):
+        print("Voici la documentation de votre jeu : "
+        "\nMaléfices est un jeu de rôle occulte et mystérieux se déroulant en "
+        "France à la Belle Époque (1870-1914). Durant cette période charnière" 
+        "entre les XIXe et XXe siècles, les superstitions sont encore vives,"
+        "surtout dans les campagnes où l’on ne plaisante pas avec le Malin.") 
+        
 class Kuro (Jeur_role):
     def __init__(self, quantite):
         super().__init__()
         self.quantite = quantite
+
+    def achat(self):
+        print("Voici la documentation de votre jeu : "
+        "\nKuro est un jeu de rôle édité par Le Septième Cercle" 
+        "et paru en 2007. Il tourne autour de 3 thèmes majeurs :" 
+        "le Japon, la technologie et l'horreur.")
         
 
 class Jeu_assemblage(Jeu):
@@ -197,11 +232,24 @@ class Mahjong(Jeu_adresse):
         self.quantite = quantite
 
 class Tournoi:
-    def __init__(self, nom, prenom, courriel):
-        self.nom = nom
-        self.prenom = prenom
-        self.courriel = courriel
-        self.date = ""
+    # dict_tournois = {"16/10/22": "Durandal en guerre 2",
+    #                 "28/10/22":"BRETZWARS 4",
+    #                 "16/11/22":"La Pitounerie",
+    #                 "20/10/22":"Majestik conquest"}
+    def __init__(self):
+        # self.nom = nom
+        # self.prenom = prenom
+        # self.courriel = courriel
+        # self.date = ""
+
+        print("voici les Tournois à venir :")
+        for key, values in Tournoi.dict_tournois.items():
+            print(f"{key} - {values}" )
+        nom = input("Entrez votre nom : ")
+        prenom = input("Entrez votre prenom : ")
+        courriel= input("Entrer votre courrriel : ")
+        # self.object_pochette = Magasin.choisir_pochette(couleur)
+        self.objet_tournoi= Tournoi(nom, prenom, courriel)
 
     def __str__(self) -> str:
         return f"Mr {self.nom} vous ete inscrit dans le tournoi regionel qui aura lieu le {self.date}"
@@ -212,6 +260,14 @@ class Pochette:
 
     def __str__(self):
         return (f"Voici votre pochette plastifiante {self.couleur} ")
+
+class participant:
+    def __init__(self, nom, courriel):
+        self.nom = nom
+        self.courriel = courriel
+
+    def __str__(self) -> str:
+       return f"Le nom de participant : {self.nom} - Courriel : {self.couriel}"
 
 m = Magasin()
 m.menu()
