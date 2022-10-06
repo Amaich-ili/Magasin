@@ -71,7 +71,6 @@ class Magasin:
                 if objet.nom == "Grepolis":
                     objet.couleur = input("Choisissez la couleur de votre pochette : ")
 
-
     def afficher(self):
         for objet in self.liste_objet:
             if objet.quantite > 0:
@@ -131,25 +130,23 @@ class Jeur_role(Jeu):
     def __init__(self, nom, quantite):
         super().__init__(nom, quantite)
         self.documentation = ""
-        self.type = " jeu de rôle"
+        self.type = "jeu de rôle"
         self.nom = nom
         self.quantite = quantite
-
 
 class Jeu_assemblage(Jeu):
     def __init__(self, nom, quantite):
         super().__init__(nom, quantite)
-        self.type = " jeu d'assemblage"
+        self.type = "jeu d'assemblage"
         self.nom = nom
         self.quantite = quantite
 
 class Jeu_adresse(Jeu):
     def __init__(self, nom, quantite):
         super().__init__(nom, quantite)
-        self.type = " jeu d'adresse'"
+        self.type = "jeu d'adresse'"
         self.nom = nom
         self.quantite = quantite
-
 
 class tournoi:
     # liste_condidat = []
