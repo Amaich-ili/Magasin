@@ -6,23 +6,25 @@ Session été 2022
 """
 
 class Magasin:
+    qtt_vendu = int
     def __init__(self):
         self.liste_objet = []
         self.choix = ""
-        self.qtt = int
+        # self.qtt = int
         self.dict_jeu = {
                         "Uno": Uno, "Solitaire" : Solitaire, "Elvenar": Elvenar, 
                         "Grepolis": Grepolis, "Malefices":Malefices, "Kuro": Kuro,
                         "Casse_tete": Casse_tete, "Rubik's_cube": Rubiks_cube,
                         "Monopolie": Monopolie, "Mahjong": Mahjong
                         }
+        # self.dict_type_jeu: {"Jeu_carte": Jeu_carte, "Jeu_strategie"
+
+        # }
         
         with open("fichier.txt", "r") as f:
             lines = f.readlines()
             for line in lines:
                 objet = line.split()
-                #constructeurs = {"jeu_carte": Jeu_carte, ...}
-                #constructeurs[user_input](int(objet[2]))
                 if objet[0] == "Jeu_carte":
                     self.liste_objet.append(Jeu_carte(objet[1], int(objet[2])))
                 elif objet[0] == "Jeu_strategie":
@@ -37,10 +39,15 @@ class Magasin:
     def inventaire(self):
         for objet in self.liste_objet:
             if objet.nom == self.choix:
-                objet.quantite -= self.qtt
+                objet.quantite -= Magasin.qtt_vendu
+                print(f"{objet} Quantite en stock : {objet.quantite}")
 
     def achat (self):
-        self.choix.achat()
+        with open("fichier.txt", "r") as f:
+            lines = f.readlines()
+            for line in lines:
+                jeu = line.split()
+                return self.dict_jeu[self.choix](jeu[1],int(jeu[2])).achat()
 
 #Fais attention de ne pas hard code des sélection. rends ton code dynamique.
     # def pochettes(self):
@@ -83,7 +90,7 @@ class Magasin:
 
     def commande(self):
         self.choix = input("\nChoisir un jeu : ").capitalize()
-        self.qtt = int(input("Combien de ce jeu voulez vous ? "))
+        Magasin.qtt_vendu = int(input("Combien de ce jeu voulez vous ? "))
 
     def menu(self):
         condition = True
@@ -92,53 +99,47 @@ class Magasin:
             choix = input("\n(1). Acheter un jeu "
                         "\n(2). Voir l'inventaire "
                         "\n(3). Quiter"
-                        "\nVotre choix : ")
+                        "\nVotre choix (1 - 3): ")
 
             if choix == "1":
                 print("\nVoici les jeux disponibles")
                 self.afficher()
                 self.commande()
-                self.inventaire()
                 self.achat()
             elif choix == "2":
-                self.afficher()
+                self.inventaire()
             elif choix == "3":
                 condition = False
 
 class Jeu:
- 
     def __str__(self) -> str:
-        return f"Jeu : {self.nom} \tQuantité en stock disponible {self.quantite} "
+        return f"Jeu : {self.nom} "
 
-#Surcharge la même méthode dans toutes tes classes pour éviter d'avoir à trouver son type.
 class Jeu_carte(Jeu):
     def __init__(self,nom, quantite):
         super(). __init__()
         self.type = "Jeux de cartes"
         self.couleur = ""
-        self.object_pochette = None #Pochette(self.couleur)
+        self.object_pochette = None
         self.nom = nom
         self.quantite = quantite
 
     def achat(self):
-        #choisir user color ici
-        couleur = input("Choisissez la couleur de votre pochette : ")
-        # self.object_pochette = Magasin.choisir_pochette(couleur)
-        self.object_pochette = Pochette(couleur)
-
-    def afficher(self):
-        print(self.object_pochette)
-
+        for i in range(Magasin.qtt_vendu):
+            couleur = input(f"Choisissez la couleur de votre pochette numero {i+1}: ")
+            self.object_pochette = Pochette(couleur)
+            print(f"{self.object_pochette}pour votre jeu {self.nom}")
 
 class Uno(Jeu_carte):
-    def __init__(self, quantite):
-        super().__init__()
+    def __init__(self, nom ,quantite):
+        super().__init__(nom, quantite)
+        self.nom = nom
         self.quantite = quantite
         
-
 class Solitaire(Jeu_carte):
-    def __init__(self, quantite):
+    def __init__(self, nom, quantite):
         super().__init__(nom, quantite)
+        self.nom = nom
         self.quantite = quantite
 
 
@@ -244,8 +245,7 @@ class Pochette:
         self.couleur = couleur
 
     def __str__(self):
-        return (f"Voici votre pochette plastifiante {self.couleur}")
-
+        return (f"Voici votre pochette plastifiante {self.couleur} ")
 
 m = Magasin()
 m.menu()
