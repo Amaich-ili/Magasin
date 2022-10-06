@@ -1,10 +1,10 @@
-Uno 2
-Solitaire 2
-Elvenar 2
-Grepolis 2
-malefices 2
-Kuro 2
-Casse_tete 2
-Rubik's_cube 2
-Monopolie 2
-mahjong 2
+Jeu_carte Uno 2
+Jeu_carte Solitaire 2
+Jeu_strategie Elvenar 2
+Jeu_strategie Grepolis 2
+Jeur_role Malefices 2
+Jeur_role Kuro 2
+Jeu_assemblage Casse_tete 2
+Jeu_assemblage Rubik's_cube 2
+Jeu_adresse Monopolie 2
+Jeu_adresse Mahjong 2

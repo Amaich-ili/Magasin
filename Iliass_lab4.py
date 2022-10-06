@@ -44,13 +44,12 @@ class Magasin:
             for objet in self.liste_objet:
                 if objet.nom == "Uno":
                     objet.couleur = input("Choisissez la couleur de votre pochette : ")
-                    print(objet.object_pochette)
+                    objet.afficher()
         elif self.choix == "Solitaire":
             for objet in self.liste_objet:
                 if objet.nom == "Solitaire":
                     objet.couleur = input("Choisissez la couleur de votre pochette : ")
-                    print(objet.object_pochette)
-
+                    objet.afficher()
     def doc(self):
         if self.choix == "Malefices":
             for objet in self.liste_objet:
@@ -106,15 +105,15 @@ class Jeu:
         self.quantite = quantite
 
     def __str__(self) -> str:
-        return f"Jeu : {self.nom} \nQuantité en stock disponible {self.quantite} "
+        return f"Jeu : {self.nom} \tQuantité en stock disponible {self.quantite} "
 
 
 class Jeu_carte(Jeu):
-    def __init__(self,nom, quantite, couleur):
+    def __init__(self,nom, quantite):
         super(). __init__(nom, quantite)
         self.type = "Jeux de cartes"
-        self.dict_couleur = {1: "Rouge", 2: "Jaune", 3:"Bleu", 4: "Orange"}
-        self.object_pochette = Pochette(couleur)
+        self.couleur = ""
+        self.object_pochette = Pochette(self.couleur)
         self.nom = nom
         self.quantite = quantite
 
