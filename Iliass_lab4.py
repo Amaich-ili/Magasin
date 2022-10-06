@@ -49,40 +49,6 @@ class Magasin:
                 jeu = line.split()
                 return self.dict_jeu[self.choix](jeu[1],int(jeu[2])).achat()
 
-#Fais attention de ne pas hard code des sélection. rends ton code dynamique.
-    # def pochettes(self):
-    #     if self.choix == "Uno":
-    #         for objet in self.liste_objet:
-    #             if objet.nom == "Uno":
-    #                 # objet.couleur = input("Choisissez la couleur de votre pochette : ")
-    #                 objet.achat()
-    #                 print(objet.object_pochette)
-    #     elif self.choix == "Solitaire":
-    #         for objet in self.liste_objet:
-    #             if objet.nom == "Solitaire":
-    #                 # objet.couleur = input("Choisissez la couleur de votre pochette : ")
-    #                 objet.achat()
-    #                 print(objet.object_pochette)
-    # def doc(self):
-    #     if self.choix == "Malefices":
-    #         for objet in self.liste_objet:
-    #             if objet.nom == "Malefices":
-    #                 print("Documentation")
-    #     elif self.choix == "Kuro":
-    #         for objet in self.liste_objet:
-    #             if objet.nom == "Kuro":
-    #                 print("Documentation")
-
-    # def tournoi(self):
-    #     if self.choix == "Elvenar":
-    #         for objet in self.liste_objet:
-    #             if objet.nom == "Elvenar":
-    #                 objet.couleur = input("Choisissez la couleur de votre pochette : ")
-    #     elif self.choix == "Grepolis":
-    #         for objet in self.liste_objet:
-    #             if objet.nom == "Grepolis":
-    #                 objet.couleur = input("Choisissez la couleur de votre pochette : ")
-
     def afficher(self):
         for objet in self.liste_objet:
             if objet.quantite > 0:
