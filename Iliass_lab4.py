@@ -95,7 +95,7 @@ class Magasin:
                 self.inventaire()
                 self.pochettes()
             elif choix == "2":
-                self.inventaire()
+                self.afficher()
             elif choix == "3":
                 condition = False
 
