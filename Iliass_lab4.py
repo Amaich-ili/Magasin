@@ -95,7 +95,7 @@ class Magasin:
                 self.inventaire()
                 self.pochettes()
             elif choix == "2":
-                pass
+                self.inventaire()
             elif choix == "3":
                 condition = False
 
@@ -117,9 +117,12 @@ class Jeu_carte(Jeu):
         self.nom = nom
         self.quantite = quantite
 
+    def afficher(self):
+        print(self.object_pochette)
+
 class Jeu_strategie(Jeu):
     def __init__(self, nom, quantite):
-        super().__init__(nom, quantite, tournoi)
+        super().__init__(nom, quantite)
         self.type = "Jeux de strategie"
         self.nom = nom
         self.quantite = quantite
