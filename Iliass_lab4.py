@@ -134,28 +134,39 @@ class Elvenar(Jeu_strategie):
     def __init__(self, quantite):
         super().__init__()
         self.quantite = quantite
+        self.liste_tournoi= []
+        self.liste_participant= []
     
     def achat(self):
         participe = input("Voulez vous participer à un Tournoi (oui/non): ")
         if participe == "oui":
             nom = input("Entrez votre nom : ")
             courriel= input("Entrer votre courrriel : ")
-        # self.object_pochette = Magasin.choisir_pochette(couleur)
-        self.objet_tournoi= Tournoi(nom, courriel)
+            self.liste_participant.append(participant(nom, courriel))
+            self.liste_tournoi.append(Tournoi())
+        else:
+            pass
+        
+        
+        
 
 class Grepolis(Jeu_strategie):
     def __init__(self, quantite):
         super().__init__()
         self.quantite = quantite
+        self.liste_tournoi= []
+        self.liste_participant = []
     
     def achat(self):
         participe = input("Voulez vous participer à un Tournoi (oui/non): ")
         if participe == "oui":
             nom = input("Entrez votre nom : ")
             courriel= input("Entrer votre courrriel : ")
-        # self.object_pochette = Magasin.choisir_pochette(couleur)
-        self.objet_tournoi= Tournoi(nom, courriel)
-
+            self.liste_participant.append(participant(nom, courriel))
+            self.liste_tournoi.append(Tournoi())
+        else:
+            pass
+        
 class Jeur_role(Jeu):
     def __init__(self, nom, quantite):
         super(). __init__()
@@ -163,9 +174,6 @@ class Jeur_role(Jeu):
         self.type = "jeu de rôle"
         self.nom = nom
         self.quantite = quantite
-
-    # def achat(self):
-    #     print("Voici la documentation de votre jeu : ")
 
 class Malefices(Jeur_role):
     def __init__(self, quantite):
