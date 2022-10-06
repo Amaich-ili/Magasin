@@ -14,6 +14,8 @@ class Magasin:
             lines = f.readlines()
             for line in lines:
                 objet = line.split()
+                #constructeurs = {"jeu_carte": Jeu_carte, ...}
+                #constructeurs[user_input](int(objet[2]))
                 if objet[0] == "Jeu_carte":
                     self.liste_objet.append(Jeu_carte(objet[1], int(objet[2])))
                 elif objet[0] == "Jeu_strategie":
@@ -29,7 +31,7 @@ class Magasin:
         for objet in self.liste_objet:
             if objet.nom == self.choix:
                 objet.quantite -= self.qtt
-
+#Fais attention de ne pas hard code des sélection. rends ton code dynamique.
     def pochettes(self):
         if self.choix == "Uno":
             for objet in self.liste_objet:
@@ -98,18 +100,24 @@ class Jeu:
     def __str__(self) -> str:
         return f"Jeu : {self.nom} \tQuantité en stock disponible {self.quantite} "
 
-
+#Surcharge la même méthode dans toutes tes classes pour éviter d'avoir à trouver son type.
 class Jeu_carte(Jeu):
     def __init__(self,nom, quantite):
         super(). __init__(nom, quantite)
         self.type = "Jeux de cartes"
         self.couleur = ""
-        self.object_pochette = Pochette(self.couleur)
+        self.object_pochette = None #Pochette(self.couleur)
         self.nom = nom
         self.quantite = quantite
 
     def afficher(self):
         print(self.object_pochette)
+
+    def achat(self):
+        #choisir user color ici
+        self.object_pochette = Magasin.choisir_pochette()
+        #print(self)
+    #def __str__(self)
 
 class Jeu_strategie(Jeu):
     def __init__(self, nom, quantite):
