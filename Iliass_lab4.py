@@ -36,7 +36,7 @@ class Magasin:
             lines = f.readlines()
             for line in lines:
                 jeu = line.split()
-                return self.dict_jeu[self.choix](jeu[1],int(jeu[2])).achat()
+                return self.dict_jeu[self.choix](jeu[0],int(jeu[1])).achat()
 
     def afficher(self):
         for objet in self.liste_objet:
