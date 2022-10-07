@@ -4,9 +4,7 @@ Laboratoire 4
 Session été 2022
 
 """
-
 from random import randint
-
 
 class Magasin:
     qtt_vendu = int
@@ -24,7 +22,7 @@ class Magasin:
             lines = f.readlines()
             for line in lines:
                 jeu = line.split()
-                self.liste_objet.append(self.dict_jeu[jeu[1]](jeu[1],int(jeu[2])))
+                self.liste_objet.append(self.dict_jeu[jeu[0]](jeu[0],int(jeu[1])))
 
     def stock(self):
         for objet in self.liste_objet:
@@ -69,13 +67,12 @@ class Magasin:
                 condition = False
 
 class Jeu:
-    def __str__(self) -> str:
+    def __str__(self):
         return f"Jeu : {self.nom} "
 
 class Jeu_carte(Jeu):
     def __init__(self):
         super(). __init__()
-        self.type = "Jeux de cartes"
         self.pochette = None
 
     def achat(self):
@@ -96,19 +93,15 @@ class Solitaire(Jeu_carte):
         self.nom = nom
         self.quantite = quantite
 
-
 class Jeu_strategie(Jeu):
     def __init__(self):
         super(). __init__()
-        self.type = "Jeux de strategie"
         self.tournoi = None
         self.liste_tournoi= []
-
 
     def achat(self):
         participe = input("Voulez vous participer à un Tournoi (oui/non): ")
         if participe == "oui":
-            print(self.nom)
             self.tournoi = Tournoi(self.nom)
             self.liste_tournoi.append(Tournoi(self.tournoi))
             nom = input("Entrez votre nom : ")
@@ -128,56 +121,12 @@ class Elvenar(Jeu_strategie):
         super().__init__()
         self.nom = nom
         self.quantite = quantite
-        # self.tournoi = None
-        # self.liste_tournoi= []
-        
-    
-    # def achat(self):
-    #     participe = input("Voulez vous participer à un Tournoi (oui/non): ")
-    #     if participe == "oui":
-    #         self.tournoi = Tournoi(self.nom)
-    #         self.liste_tournoi.append(self.tournoi)
-    #         nom = input("Entrez votre nom : ")
-    #         courriel= input("Entrer votre courrriel : ")
-    #         self.tournoi.liste_participants.append(participant(nom, courriel))
-    #         print(self.tournoi)
-            
-    #     else:
-    #         pass
-
-    # def afficher_tournoi(self):
-    #     print("Voici la liste de participants: ")
-    #     for participant in self.tournoi.liste_participant:
-    #         print(participant)
         
 class Grepolis(Jeu_strategie):
     def __init__(self, nom, quantite):
         super().__init__()
         self.nom = nom
         self.quantite = quantite
-        # self.tournoi = None
-        # self.liste_tournoi= []
-    
-    # def achat(self):
-    #     participe = input("Voulez vous participer à un Tournoi (oui/non): ")
-    #     if participe == "oui":
-    #         self.tournoi = Tournoi(self.nom)
-    #         self.liste_tournoi.append(Tournoi(self.tournoi))
-    #         nom = input("Entrez votre nom : ")
-    #         courriel= input("Entrer votre courrriel : ")
-    #         self.tournoi.liste_participants.append(participant(nom, courriel))
-    #         print(self.tournoi)        
-            
-    #     else:
-    #         pass
-
-    # def afficher_tournoi(self):
-    #     print("Voici la liste de participants: ")
-    #     for participant in self.tournoi.liste_participant:
-    #         print(participant)
-    #je suis la je dois regler le problem de la liste
-            # for participant in Tournoi.liste_participant:
-            #     print(participant)
 
 class Tournoi:
     def __init__(self, nom):
@@ -186,7 +135,7 @@ class Tournoi:
         self.liste_participants = []
 
     def __str__(self):
-        return f"\n Félicitation vous êtes inscrit au tournoi regionel de {self.nom} qui aura lieu le {self.date}"
+        return f"\n Félicitation vous êtes inscrit au tournoi regionel qui aura lieu le {self.date}"
 
 class participant:
     def __init__(self, nom, courriel):
@@ -198,9 +147,7 @@ class participant:
         
 class Jeur_role(Jeu):
     def __init__(self):
-        super(). __init__()
-        self.type = "jeu de rôle"
-  
+        super(). __init__()  
 
 class Malefices(Jeur_role):
     def __init__(self, nom, quantite):
@@ -230,14 +177,12 @@ class Kuro (Jeur_role):
         "prisonniers du blocus. Ils sont, comme tous les autres, confrontés "
         "à des phénomènes paranormaux, comme si les légendes médiévales prenaient vie. ")
         
-
 class Jeu_assemblage(Jeu):
     def __init__(self):
         super(). __init__()
-        self.type = "jeu d'assemblage"
      
     def achat(self):
-        print(" Voila votre jeu ")
+        print(" \n--Voici votre jeu , Bonne journee--")
 
 class Casse_tete(Jeu_assemblage):
     def __init__(self, nom, quantite):
@@ -254,7 +199,6 @@ class Rubiks_cube(Jeu_assemblage):
 class Jeu_adresse(Jeu):
     def __init__(self):
         super(). __init__()
-        self.type = "jeu d'adresse'"
 
     def achat(self):
         print(" \n--Voici votre jeu , Bonne journee--")
@@ -271,8 +215,6 @@ class Mahjong(Jeu_adresse):
         self.nom = nom
         self.quantite = quantite
 
-
-
 class Pochette:
     def __init__(self, couleur):
         self.couleur = couleur
@@ -287,6 +229,8 @@ class participant:
 
     def __str__(self) -> str:
        return f"Le nom de participant : {self.nom} - Courriel : {self.courriel}"
+
+
 
 m = Magasin()
 m.menu()
