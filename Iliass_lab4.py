@@ -234,9 +234,3 @@ class participant:
 
 m = Magasin()
 m.menu()
-
-
-
-
-
-
