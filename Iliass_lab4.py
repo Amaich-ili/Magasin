@@ -53,7 +53,7 @@ class Magasin:
             print("\n\t--Binvenue dans note magasin de jeux--")
             choix = input("\n(1). Acheter un jeu "
                           "\n(2). Voir l'inventaire "
-                          "\n(3). Quiter"
+                          "\n(3). Quitter"
                           "\nMerci de choisir une option (1-3): ")
 
             if choix == "1":
