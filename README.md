@@ -20,9 +20,6 @@ Si l'utilisateur choisit un jeu de rôles, le programme affiche la documentation
 ### Support
 Iliass Amaich iliamaich@gmail.com
 
-### Auteurs et Reconnaissances
-Keven Presseau
-
 
 
 
