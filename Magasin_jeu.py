@@ -1,6 +1,5 @@
 """
 Iliass Amaich
-Laboratoire 4
 Session été 2022
 
 """
